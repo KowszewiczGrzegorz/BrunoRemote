@@ -11,6 +11,28 @@
 </head>
 
 <body onload="onBodyLoad()">
+	<script type="text/javascript">
+	    function absorbEvent_(event) {
+	      var e = event || window.event;
+	      e.preventDefault && e.preventDefault();
+	      e.stopPropagation && e.stopPropagation();
+	      e.cancelBubble = true;
+	      e.returnValue = false;
+	      return false;
+	    }
+	
+	    function preventLongPressMenu(node) {
+	      node.ontouchstart = absorbEvent_;
+	      node.ontouchmove = absorbEvent_;
+	      node.ontouchend = absorbEvent_;
+	      node.ontouchcancel = absorbEvent_;
+	    }
+	
+	    function init() {
+	      preventLongPressMenu(document.getElementById('btnLeft'));
+	    }
+	</script>
+	
 	<div id="maindiv">
 		<div id="camPanel">
 			<img id="camPic" src="cam.png" alt="bla"/>
@@ -19,24 +41,24 @@
 		<div id="controlsPanel">
 			<div id="turnLeftPanel" class="controlButtonsH">
 				<div style="height:40%; width:100%;"></div>
-				<img src="pics/left.png" alt="bla" />
+				<img id="btnLeft" src="pics/left.png" alt="bla" />
 				<div style="height:40%; width:100%;"></div>
 			</div>
 			<div id="middlePanel">
 				<div id="moveForwardPanel" class="controlButtonsV">
 					<div style="height:25%; width:100%;"></div>
-					<img src="pics/up.png" alt="bla" />
+					<img id="btnUp" src="pics/up.png" alt="bla" />
 					<div style="height:25%; width:100%;"></div>
 				</div>
 				<div id="moveBackwardPanel" class="controlButtonsV">
 					<div style="height:25%; width:100%;"></div>
-					<img src="pics/down.png" alt="bla" />
+					<img id="btnDown" src="pics/down.png" alt="bla" />
 					<div style="height:25%; width:100%;"></div>
 				</div>
 			</div>
 			<div id="turnRightPanel" class="controlButtonsH">
 				<div style="height:40%; width:100%;"></div>
-				<img src="pics/right.png" alt="bla" />
+				<img id="btnRight" src="pics/right.png" alt="bla" />
 				<div style="height:40%; width:100%;"></div>
 			</div>
 		</div>		
