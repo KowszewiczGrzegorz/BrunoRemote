@@ -9,3 +9,8 @@ _vti_cnf/index.js
 _vti_cnf/README.md
 _vti_cnf/reset.css
 php/_vti_cnf/camPic.php
+php/_vti_cnf/moveBackward.php
+php/_vti_cnf/moveForward.php
+php/_vti_cnf/turnLeft.php
+php/_vti_cnf/turnRight.php
+Thumbs.db

@@ -30,7 +30,7 @@ function registerTouchEvents() {
 }
 
 function updateCam() {
-	document.getElementById("camPic").src = "cam.png?" + new Date().getTime();
+	document.getElementById("camPic").src = "/php/camPic.php?" + new Date().getTime();
 }
 
 /* ClickTouchHandlers Controls */
