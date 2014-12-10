@@ -1,5 +1,5 @@
 ﻿function onBodyLoad() {
-	setInterval(function () {updateCam()}, 200);
+	setInterval(function () {updateCam()}, 400);
 	registerTouchEvents();
 }
 
