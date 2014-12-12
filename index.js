@@ -52,7 +52,7 @@ function camImageReceived() {
 			img.src="data:image/jpeg;base64," + encode64(xhr.responseText);
    		}
    	}
-   	setTimeout(function () { updateCam(); }, 300);
+   	setTimeout(function () { updateCam(); }, 20);
 }
 
 /* ClickTouchHandlers Controls */
