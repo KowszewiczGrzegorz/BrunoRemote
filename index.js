@@ -1,5 +1,6 @@
 ﻿function onBodyLoad() {
-	setInterval(function () {updateCam()}, 1000);
+	//setInterval(function () {updateCam()}, 1000);
+	updateCam();
 	registerTouchEvents();
 }
 
@@ -30,7 +31,28 @@ function registerTouchEvents() {
 }
 
 function updateCam() {
-	document.getElementById("camPic").src = "/php/camPic.php?" + new Date().getTime();
+	var xhr = getXMLHttpRequest();
+	xhr.onreadystatechange=camImageReceived;
+	xhr.open("GET","/php/camPic.php?" + new Date().getTime(), true);
+	xhr.overrideMimeType('text/plain; charset=x-user-defined');
+	xhr.send(null);	
+	
+	//document.getElementById("camPic").src = "/php/camPic.php?" + new Date().getTime();
+}
+
+function camImageReceived() {
+	if(xhr.readyState==4)
+  	{ 
+	    if (xhr.status==200)
+	    {
+	        retval ="";
+	        for (var i=0; i<=xhr.responseText.length-1; i++)
+	              retval += String.fromCharCode(xhr.responseText.charCodeAt(i) & 0xff);
+	        var img=document.getElementById("camPic");
+			img.src="data:image/jpeg;base64," + encode64(xhr.responseText);
+   		}
+   	}
+   	setTimeout(function () { updateCam(); }, 300);
 }
 
 /* ClickTouchHandlers Controls */
