@@ -49,7 +49,7 @@ function updateCam() {
         var b64=btoa(raw);
         var dataURL="data:image/jpeg;base64,"+b64;
         document.getElementById("camPic").src = dataURL;
-        setTimeout(function () { updateCam(); }, 20);
+        setTimeout(function () { updateCam(); }, 300);
     };
 
     xmlHTTP.send();
