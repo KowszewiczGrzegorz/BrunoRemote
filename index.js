@@ -31,29 +31,33 @@ function registerTouchEvents() {
 }
 
 function updateCam() {
-	var xhr = getXMLHttpRequest();
-	xhr.onreadystatechange=camImageReceived;
-	xhr.open("GET","/php/camPic.php?" + new Date().getTime(), true);
-	xhr.overrideMimeType('text/plain; charset=x-user-defined');
-	xhr.send(null);	
-	
+
+	 var xmlHTTP = new XMLHttpRequest();
+    xmlHTTP.open('GET',"/php/camPic.php?" + new Date().getTime(),true);
+
+    // Must include this line - specifies the response type we want
+    xmlHTTP.responseType = 'arraybuffer';
+    xmlHTTP.onload = function(e)
+    {
+        var arr = new Uint8Array(this.response);
+        // Convert the int array to a binary string
+        // We have to use apply() as we are converting an *array*
+        // and String.fromCharCode() takes one or more single values, not
+        // an array.
+        var raw = String.fromCharCode.apply(null,arr);
+        // This works!!!
+        var b64=btoa(raw);
+        var dataURL="data:image/jpeg;base64,"+b64;
+        document.getElementById("camPic").src = dataURL;
+        setTimeout(function () { updateCam(); }, 20);
+    };
+
+    xmlHTTP.send();
+		
 	//document.getElementById("camPic").src = "/php/camPic.php?" + new Date().getTime();
 }
 
-function camImageReceived() {
-	if(xhr.readyState==4)
-  	{ 
-	    if (xhr.status==200)
-	    {
-	        retval ="";
-	        for (var i=0; i<=xhr.responseText.length-1; i++)
-	              retval += String.fromCharCode(xhr.responseText.charCodeAt(i) & 0xff);
-	        var img=document.getElementById("camPic");
-			img.src="data:image/jpeg;base64," + encode64(xhr.responseText);
-   		}
-   	}
-   	setTimeout(function () { updateCam(); }, 20);
-}
+
 
 /* ClickTouchHandlers Controls */
 
