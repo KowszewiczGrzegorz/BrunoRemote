@@ -1,8 +1,8 @@
 ﻿var blocked = false;
 var moving = false;
 var movingCommand = "";
-var dist = 20;
-var speed = 50;
+var dist = 30;
+var speed = 200;
 
 
 function onBodyLoad() {
@@ -101,7 +101,7 @@ function clickTouchTurnLeftPanel(e) {
 function clickTouchTurnRightPanel(e) {
 	if (e.type == "touchstart" || e.type == "mousedown" && !blocked) {
 		document.getElementById("turnRightPanel").style.background = "rgba(255,255,255,0.7)";
-		startMoving("SetMotor -" + dist + " -" + dist + " " + speed);
+		startMoving("SetMotor " + dist + " -" + dist + " " + speed);
 	}
 	else {
 		document.getElementById("turnRightPanel").style.background = "";
