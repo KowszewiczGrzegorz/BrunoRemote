@@ -6,7 +6,7 @@
 	$serial->confBaudRate(115200);
 	$serial->confParity("none");
 	$serial->confCharacterLength(8);
-	$serial->confStopBits(1);
+	$serial->confStopBits(0);
 	$serial->deviceOpen();
 	$serial->sendMessage("PlaySound 1");	
 	$serial->deviceClose();
