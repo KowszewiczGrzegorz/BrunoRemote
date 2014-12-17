@@ -1,7 +1,7 @@
 <?php
 	error_reporting(E_ALL);
 	ini_set('display_errors', '1');
-	include "php_serial.class.php";
+	include "PhpSerial.php";
 	
 	$serial = new phpSerial;
 	$serial->deviceSet("/dev/ttyACM0");
