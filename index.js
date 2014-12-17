@@ -54,7 +54,6 @@ function sendGetCall(address) {
 	xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", address, false );
     xmlHttp.send( null );
-    alert(xmlHttp.responseText);
 }
 
 
