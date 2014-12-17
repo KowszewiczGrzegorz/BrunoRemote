@@ -1,5 +1,5 @@
 <?php
-	error_reporting(E_ALL);
+/*	error_reporting(E_ALL);
 	ini_set('display_errors', '1');
 	include "PhpSerial.php";
 	
@@ -11,5 +11,7 @@
 	$serial->confStopBits(0);
 	$serial->deviceOpen();
 	$serial->sendMessage("PlaySound 1");	
-	$serial->deviceClose();
+	$serial->deviceClose(); */
+	
+	system('echo "p 1\n > /dev/ttyACM0');
 ?>
