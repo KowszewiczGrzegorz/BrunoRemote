@@ -2,7 +2,7 @@
 var moving = false;
 var movingCommand = "";
 var dist = 50;
-var speed = 100;
+var speed = 150;
 
 
 function onBodyLoad() {
