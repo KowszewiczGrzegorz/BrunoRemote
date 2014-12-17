@@ -65,6 +65,7 @@ function startMoving(command) {
 	if(!blocked) {
 		blocked = true;
 		moving = true;	
+		move(command.replace(" ", "+"));
 	}
 }
 
