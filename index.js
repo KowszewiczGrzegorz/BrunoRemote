@@ -1,4 +1,7 @@
 ﻿var blocked = false;
+var moving = false;
+var movingCommand = "";
+
 
 function onBodyLoad() {
 	//setInterval(function () {updateCam()}, 1000);
@@ -58,10 +61,30 @@ function sendSerialCommand(command) {
     xmlHttp.send( null );
 }
 
+function startMoving(command) {
+	if(!blocked) {
+		blocked = true;
+		moving = true;	
+	}
+}
+
+function move(command) {
+	if(moving) {
+		sendSerialCommand(command);
+		setTimeout(function(){ move(command) }, 1000);
+	}
+}
+
+function stopMoving() {
+	moving = false;
+	sendSerialCommand("p stop");
+	blocked = false;
+}
+
 /* ClickTouchHandlers Controls */
 
 function clickTouchTurnLeftPanel(e) {
-	if (e.type == "touchstart" || e.type == "mousedown") {
+	if (e.type == "touchstart" || e.type == "mousedown" && !blocked) {
 		document.getElementById("turnLeftPanel").style.background = "rgba(255,255,255,0.7)";
 	}
 	else {
@@ -70,28 +93,28 @@ function clickTouchTurnLeftPanel(e) {
 }
 
 function clickTouchTurnRightPanel(e) {
-	if (e.type == "touchstart" || e.type == "mousedown") {
+	if (e.type == "touchstart" || e.type == "mousedown" && !blocked) {
 		document.getElementById("turnRightPanel").style.background = "rgba(255,255,255,0.7)";
 	}
 	else {
 		document.getElementById("turnRightPanel").style.background = "";
 	}	
-
 }
 
 function clickTouchMoveForwardPanel(e) {
-	if (e.type == "touchstart" || e.type == "mousedown") {
+	if (e.type == "touchstart" || e.type == "mousedown" && !blocked) {
 		document.getElementById("moveForwardPanel").style.background = "rgba(255,255,255,0.7)";
-		sendSerialCommand("p 1");
+		startMoving("p 1");
 	}
 	else {
 		document.getElementById("moveForwardPanel").style.background = "";
+		sendSerialCommand("p stop");
+		stopMoving();
 	}	
-
 }
 
 function clickTouchMoveBackwardPanel(e) {
-	if (e.type == "touchstart" || e.type == "mousedown") {
+	if (e.type == "touchstart" || e.type == "mousedown" && !blocked) {
 		document.getElementById("moveBackwardPanel").style.background = "rgba(255,255,255,0.7)";
 	}
 	else {
