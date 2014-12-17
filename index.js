@@ -4,6 +4,9 @@ var movingCommand = "";
 var dist = 100;
 var speed = 190;
 
+var turnDist = 50;
+var turnSpeed = 20;
+
 
 function onBodyLoad() {
 	//setInterval(function () {updateCam()}, 1000);
@@ -101,7 +104,7 @@ function clickTouchTurnLeftPanel(e) {
 function clickTouchTurnRightPanel(e) {
 	if (e.type == "touchstart" || e.type == "mousedown" && !blocked) {
 		document.getElementById("turnRightPanel").style.background = "rgba(255,255,255,0.7)";
-		startMoving("SetMotor " + dist + " -" + dist + " " + speed);
+		startMoving("SetMotor " + turnDist + " -" + turnDist + " " + turnSpeed);
 	}
 	else {
 		document.getElementById("turnRightPanel").style.background = "";
@@ -112,7 +115,7 @@ function clickTouchTurnRightPanel(e) {
 function clickTouchMoveForwardPanel(e) {
 	if (e.type == "touchstart" || e.type == "mousedown" && !blocked) {
 		document.getElementById("moveForwardPanel").style.background = "rgba(255,255,255,0.7)";
-		startMoving("SetMotor " + dist + " " + dist + " " + speed);
+		startMoving("SetMotor " + turnDist + " " + turnDist + " " + turnSpeed);
 	}
 	else {
 		document.getElementById("moveForwardPanel").style.background = "";
