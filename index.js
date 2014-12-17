@@ -59,7 +59,7 @@ function updateCam() {
 
 function sendSerialCommand(command) {
 	xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", "php/execSerial.php?cmd=" + command, false );
+    xmlHttp.open( "GET", "php/execSerial.php?cmd=" + command.replace(new RegExp(find, " "), "+"), false );
     xmlHttp.send( null );
     console.log("Serial cmd: " + command);
 }
@@ -68,7 +68,7 @@ function startMoving(command) {
 	if(!blocked) {
 		blocked = true;
 		moving = true;	
-		move(command.replace(" ", "+"));
+		move(command);
 	}
 }
 
