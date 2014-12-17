@@ -13,5 +13,5 @@
 	$serial->sendMessage("PlaySound 1");	
 	$serial->deviceClose(); */
 	
-	system('echo "p 1\n > /dev/ttyACM0');
+	system('echo "p 1\n"> /dev/ttyACM0');
 ?>
