@@ -1,8 +1,8 @@
 ﻿var blocked = false;
 var moving = false;
 var movingCommand = "";
-var dist = 30;
-var speed = 200;
+var dist = 50;
+var speed = 100;
 
 
 function onBodyLoad() {
