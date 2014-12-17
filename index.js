@@ -4,7 +4,7 @@ var movingCommand = "";
 var dist = 100;
 var speed = 190;
 
-var turnDist = 50;
+var turnDist = 20;
 var turnSpeed = 20;
 
 
@@ -93,7 +93,7 @@ function stopMoving() {
 function clickTouchTurnLeftPanel(e) {
 	if (e.type == "touchstart" || e.type == "mousedown" && !blocked) {
 		document.getElementById("turnLeftPanel").style.background = "rgba(255,255,255,0.7)";
-		startMoving("SetMotor -" + dist + " " + dist + " " + speed);
+		startMoving("SetMotor -" + turnDist + " " + turnDist + " " + turnSpeed);
 	}
 	else {
 		document.getElementById("turnLeftPanel").style.background = "";
@@ -115,7 +115,7 @@ function clickTouchTurnRightPanel(e) {
 function clickTouchMoveForwardPanel(e) {
 	if (e.type == "touchstart" || e.type == "mousedown" && !blocked) {
 		document.getElementById("moveForwardPanel").style.background = "rgba(255,255,255,0.7)";
-		startMoving("SetMotor " + turnDist + " " + turnDist + " " + turnSpeed);
+		startMoving("SetMotor " + dist + " " + dist + " " + speed);
 	}
 	else {
 		document.getElementById("moveForwardPanel").style.background = "";
