@@ -2,7 +2,7 @@
 var moving = false;
 var movingCommand = "";
 var dist = 20;
-var speed = 1;
+var speed = 5;
 
 
 function onBodyLoad() {
@@ -74,7 +74,7 @@ function startMoving(command) {
 function move(command) {
 	if(moving) {
 		sendSerialCommand(command);
-		setTimeout(function(){ move(command) }, 1000);
+		setTimeout(function(){ move(command) }, 500);
 	}
 }
 
