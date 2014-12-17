@@ -75,13 +75,13 @@ function startMoving(command) {
 function move(command) {
 	if(moving) {
 		sendSerialCommand(command);
-		setTimeout(function(){ move(command) }, 500);
+		setTimeout(function(){ move(command) }, 200);
 	}
 }
 
 function stopMoving() {
 	moving = false;
-	sendSerialCommand("SetMotor LWheelDist 0 RWheelDist 0 Speed 0 LWheelDisable RWheelDisable");
+	sendSerialCommand("SetMotor 0 0 0");
 	blocked = false;
 }
 
