@@ -61,6 +61,7 @@ function sendSerialCommand(command) {
 	xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", "php/execSerial.php?cmd=" + command, false );
     xmlHttp.send( null );
+    console.log("Serial cmd: " + command);
 }
 
 function startMoving(command) {
