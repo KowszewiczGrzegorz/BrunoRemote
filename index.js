@@ -1,6 +1,8 @@
 ﻿var blocked = false;
 var moving = false;
 var movingCommand = "";
+var dist = 20;
+var speed = 1;
 
 
 function onBodyLoad() {
@@ -78,7 +80,7 @@ function move(command) {
 
 function stopMoving() {
 	moving = false;
-	sendSerialCommand("p stop");
+	sendSerialCommand("SetMotor LWheelDist 0 RWheelDist 0 Speed 0";
 	blocked = false;
 }
 
@@ -87,29 +89,32 @@ function stopMoving() {
 function clickTouchTurnLeftPanel(e) {
 	if (e.type == "touchstart" || e.type == "mousedown" && !blocked) {
 		document.getElementById("turnLeftPanel").style.background = "rgba(255,255,255,0.7)";
+		startMoving("SetMotor LWheelDist -" + dist + " RWheelDist " + dist + " Speed " + speed);
 	}
 	else {
 		document.getElementById("turnLeftPanel").style.background = "";
+		stopMoving();
 	}	
 }
 
 function clickTouchTurnRightPanel(e) {
 	if (e.type == "touchstart" || e.type == "mousedown" && !blocked) {
 		document.getElementById("turnRightPanel").style.background = "rgba(255,255,255,0.7)";
+		startMoving("SetMotor LWheelDist " + dist + " RWheelDist -" + dist + " Speed " + speed);
 	}
 	else {
 		document.getElementById("turnRightPanel").style.background = "";
+		stopMoving();
 	}	
 }
 
 function clickTouchMoveForwardPanel(e) {
 	if (e.type == "touchstart" || e.type == "mousedown" && !blocked) {
 		document.getElementById("moveForwardPanel").style.background = "rgba(255,255,255,0.7)";
-		startMoving("p 1");
+		startMoving("SetMotor LWheelDist " + dist + " RWheelDist " + dist + " Speed " + speed);
 	}
 	else {
 		document.getElementById("moveForwardPanel").style.background = "";
-		sendSerialCommand("p stop");
 		stopMoving();
 	}	
 }
@@ -117,9 +122,11 @@ function clickTouchMoveForwardPanel(e) {
 function clickTouchMoveBackwardPanel(e) {
 	if (e.type == "touchstart" || e.type == "mousedown" && !blocked) {
 		document.getElementById("moveBackwardPanel").style.background = "rgba(255,255,255,0.7)";
+		startMoving("SetMotor LWheelDist -" + dist + " RWheelDist -" + dist + " Speed " + speed);
 	}
 	else {
 		document.getElementById("moveBackwardPanel").style.background = "";
+		stopMoving();
 	}	
 }
 
