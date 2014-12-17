@@ -1,4 +1,6 @@
-﻿function onBodyLoad() {
+﻿var blocked = false;
+
+function onBodyLoad() {
 	//setInterval(function () {updateCam()}, 1000);
 	updateCam();
 	registerTouchEvents();
@@ -50,12 +52,11 @@ function updateCam() {
 }
 
 
-function sendGetCall(address) {
+function sendSerialCommand(command) {
 	xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", address, false );
+    xmlHttp.open( "GET", "php/execSerial.php?cmd=" + command, false );
     xmlHttp.send( null );
 }
-
 
 /* ClickTouchHandlers Controls */
 
@@ -81,7 +82,7 @@ function clickTouchTurnRightPanel(e) {
 function clickTouchMoveForwardPanel(e) {
 	if (e.type == "touchstart" || e.type == "mousedown") {
 		document.getElementById("moveForwardPanel").style.background = "rgba(255,255,255,0.7)";
-		sendGetCall("php/moveForward.php");
+		sendSerialCommand("p 1");
 	}
 	else {
 		document.getElementById("moveForwardPanel").style.background = "";
