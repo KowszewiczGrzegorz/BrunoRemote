@@ -80,7 +80,7 @@ function move(command) {
 
 function stopMoving() {
 	moving = false;
-	sendSerialCommand("SetMotor LWheelDist 0 RWheelDist 0 Speed 0";
+	sendSerialCommand("SetMotor LWheelDist 0 RWheelDist 0 Speed 0");
 	blocked = false;
 }
 
