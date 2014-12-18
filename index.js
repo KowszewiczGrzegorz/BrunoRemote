@@ -1,11 +1,20 @@
 ﻿var blocked = false;
 var moving = false;
 var movingCommand = "";
-var dist = 100;
-var speed = 190;
 
-var turnDist = 20;
-var turnSpeed = 20;
+var distFast = 100
+var speedFast = 190;
+var turnDistFast = 30;
+var turnSpeedFast = 50;
+var distSlow = 50;
+var speedSlow = 95;
+var turnDistSlow = 10;
+var turnSpeedSlow = 10;
+
+var dist = distFast;
+var speed = speedFast;
+var turnDist = turnDistFast;
+var turnSpeed = turnSpeedFast;
 
 
 function onBodyLoad() {
@@ -86,6 +95,13 @@ function stopMoving() {
 	moving = false;
 	sendSerialCommand("SetMotor 0 0 0");
 	blocked = false;
+}
+
+function changeSpeeds(d, s, td, ts) {
+	dist = d;
+	speed = s;
+	turnDist = td;
+	turnSpeed = ts;
 }
 
 /* ClickTouchHandlers Controls */
