@@ -49,6 +49,14 @@ function registerTouchEvents() {
 	document.getElementById("moveBackwardPanel").addEventListener("dragstart", clickTouchMoveBackwardPanel, false);
 }
 
+function fastSelected() {
+	changeSpeeds(distFast, speedFast, turnDistFast, turnSpeedFast);
+}
+
+function slowSelected() {
+	changeSpeeds(distSlow, speedSlow, turnDistSlow, turnSpeedSlow);
+}
+
 function updateCam() {
 
 	var xmlHTTP = new XMLHttpRequest();

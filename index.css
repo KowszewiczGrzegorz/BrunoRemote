@@ -89,6 +89,20 @@ html {
 	height:50%;
 }
 
+/* SettingsPanel */
+#selectSpeed {
+	padding-top: 30px;
+	padding-right: 30px;
+	float: right;
+	color: white;
+	font-weight:bold;
+}
+
+#wrapperSpeed {
+	float: right;
+	height: 100%;
+	width: 20%;
+}
 
 
 

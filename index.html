@@ -16,7 +16,14 @@
 		<div id="camPanel">
 			<img id="camPic" src="cam.png" alt="bla"/>
 		</div>
-		<div id="settingsPanel"></div>
+		<div id="settingsPanel">
+			<div id="wrapperSpeed">
+				<div id="selectSpeed">
+					<input type="radio" id="radioFast" name="speedselection" value="fast" checked="checked" onclick="fastSelected()" />Fast<br>
+					<input type="radio" id="radioSlow" name="speedselection" value="slow"  onclick="slowSelected()"/>Slow<br>				
+				</div>
+			</div>			
+		</div>
 		<div id="controlsPanel">
 			<div id="turnLeftPanel" class="controlButtonsH">
 				<div style="height:40%; width:100%;"></div>
