@@ -6,8 +6,8 @@ var distFast = 100
 var speedFast = 190;
 var turnDistFast = 30;
 var turnSpeedFast = 50;
-var distSlow = 50;
-var speedSlow = 95;
+var distSlow = 5;
+var speedSlow = 10;
 var turnDistSlow = 10;
 var turnSpeedSlow = 10;
 
@@ -18,7 +18,6 @@ var turnSpeed = turnSpeedFast;
 
 
 function onBodyLoad() {
-	//setInterval(function () {updateCam()}, 1000);
 	updateCam();
 	registerTouchEvents();
 }
