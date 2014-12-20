@@ -48,12 +48,24 @@ function registerTouchEvents() {
 	document.getElementById("moveBackwardPanel").addEventListener("dragstart", clickTouchMoveBackwardPanel, false);
 }
 
-function fastSelected() {
-	changeSpeeds(distFast, speedFast, turnDistFast, turnSpeedFast);
+function onSwitchFastSlow() {
+	if (document.getElementById('myonoffswitch').checked)
+		changeSpeeds(distFast, speedFast, turnDistFast, turnSpeedFast);
+	else
+		changeSpeeds(distSlow, speedSlow, turnDistSlow, turnSpeedSlow);
 }
 
-function slowSelected() {
-	changeSpeeds(distSlow, speedSlow, turnDistSlow, turnSpeedSlow);
+function onSwitchTestMode() {
+	if (!blocked) {
+		if (document.getElementById('onoffswitchTestMode').checked)
+			sendSerialCommand("TestMode On");
+		else
+			sendSerialCommand("TestMode Off");
+	}		
+	
+	else {
+		document.getElementById('onoffswitchTestMode').checked = !document.getElementById('onoffswitchTestMode').checked;
+	}
 }
 
 function updateCam() {

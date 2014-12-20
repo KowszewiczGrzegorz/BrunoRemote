@@ -8,6 +8,7 @@
 	<title>BrunoRemote</title>	
 	<link rel="stylesheet" type="text/css" href="reset.css" />
 	<link rel="stylesheet" type="text/css" href="index.css" />
+	<link rel="stylesheet" type="text/css" href="widgets/onoffswitch.css" />
 	<script language="javascript" type="text/javascript" src="index.js"></script>
 </head>
 
@@ -15,14 +16,34 @@
 	<div id="maindiv">
 		<div id="camPanel">
 			<img id="camPic" src="cam.png" alt="bla"/>
-		</div>
+		</div>		
 		<div id="settingsPanel">
-			<div id="wrapperSpeed">
-				<div id="selectSpeed">
-					<input type="radio" id="radioFast" name="speedselection" value="fast" checked="checked" onclick="fastSelected()" />Fast<br>
-					<input type="radio" id="radioSlow" name="speedselection" value="slow"  onclick="slowSelected()"/>Slow<br>				
-				</div>
-			</div>			
+			<div style="height: 100%; width: 70%; float: left;"></div>
+			<div style="height: 100%; width: 30%; float: left;">
+				<div style="height: 4%; width: 100%;"></div>
+				<div id="wrapperSpeed">
+					<div class="onoffswitch">
+					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoffswitchFastSlow" onchange="onSwitchFastSlow()" checked="checked">
+					    <label class="onoffswitch-label" for="onoffswitchFastSlow">
+					        <span class="onoffswitch-inner">
+					            <span class="onoffswitch-active"><span class="onoffswitch-switch">Fast</span></span>
+					            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">Slow</span></span>
+					        </span>
+					    </label>
+					</div>
+				</div>	
+				<div id="wrapperTestMode">
+					<div class="onoffswitch">
+					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoffswitchTestMode" onchange="onSwitchTestMode()" />
+					    <label class="onoffswitch-label" for="onoffswitchTestMode">
+					        <span class="onoffswitch-inner">
+					            <span class="onoffswitch-active"><span class="onoffswitch-switch">On</span></span>
+					            <span class="onoffswitch-inactive"><span class="onoffswitch-switch">Off</span></span>
+					        </span>
+					    </label>
+					</div>	
+				</div>	
+			</div>	
 		</div>
 		<div id="controlsPanel">
 			<div id="turnLeftPanel" class="controlButtonsH">
