@@ -139,20 +139,22 @@ function changeSpeeds(d, s, td, ts) {
 }
 
 function refreshBatteryStatus() {	
-	sendSerialCommand("TestMode Off");
+	if (!blocked) {
+		sendSerialCommand("TestMode Off");
 	
-	var raw = getSerialData("GetCharger");	
-	var lines = raw.split("\n");
-	var percentValue = "-1";
-	
-	for(var i = 0; i < lines.length; i++) {
-		if (lines[i].indexOf("FuelPercent") > - 1) 
-			percentValue = lines[i].split(",")[1];	
-	}
-	document.getElementById("batteryPercentage").innerHTML = "" + percentValue;
-	
-	if (document.getElementById('onoffswitchTestMode').checked) {
-		sendSerialCommand("TestMode On");
+		var raw = getSerialData("GetCharger");	
+		var lines = raw.split("\n");
+		var percentValue = "-1";
+		
+		for(var i = 0; i < lines.length; i++) {
+			if (lines[i].indexOf("FuelPercent") > - 1) 
+				percentValue = lines[i].split(",")[1];	
+		}
+		document.getElementById("batteryPercentage").innerHTML = "" + percentValue;
+		
+		if (document.getElementById('onoffswitchTestMode').checked) {
+			sendSerialCommand("TestMode On");
+		}
 	}
 }
 
