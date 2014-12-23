@@ -4,6 +4,6 @@
 	
 	system('echo "' . $_GET["cmd"] .'\n"> /dev/ttyACM0');
 	sleep(2);
-	$received = system('cat /dev/ttyACM0 & usleep 300000 ; kill $!');	
+	$received = system('cat /dev/ttyACM0 & sleep 2 ; kill $!');	
 	echo "Received: " . $received;
 ?>
