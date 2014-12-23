@@ -22,8 +22,6 @@ var turnSpeed = turnSpeedFast;
 function onBodyLoad() {
 	updateCam();
 	registerTouchEvents();
-	document.getElementById("batteryPercentage").innerHTML = "Blabla";
-	refreshBatteryStatus();
 }
 
 function registerTouchEvents() {
