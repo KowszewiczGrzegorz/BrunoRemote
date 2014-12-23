@@ -22,6 +22,7 @@ var turnSpeed = turnSpeedFast;
 function onBodyLoad() {
 	updateCam();
 	registerTouchEvents();
+	document.getElementById("batteryPercentage").innerHTML = "Blabla";
 	refreshBatteryStatus();
 }
 
@@ -144,7 +145,7 @@ function refreshBatteryStatus() {
 			percentValue = lines[i].split(",")[1];	
 	}
 	
-	document.getElementById("batteryPercentage").innerHTML = percentValue;
+	document.getElementById("batteryPercentage").innerHTML = "" + percentValue;
 	
 	if (switchTestMode.checked) {
 		sendSerialCommand("TestMode On");
