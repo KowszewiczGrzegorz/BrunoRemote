@@ -2,6 +2,8 @@
 var moving = false;
 var movingCommand = "";
 
+var switchTestMode = document.getElementById('onoffswitchTestMode');
+
 var distFast = 100
 var speedFast = 190;
 var turnDistFast = 30;
@@ -20,6 +22,7 @@ var turnSpeed = turnSpeedFast;
 function onBodyLoad() {
 	updateCam();
 	registerTouchEvents();
+	console.log(getSerialData(command));
 }
 
 function registerTouchEvents() {
@@ -57,14 +60,14 @@ function onSwitchFastSlow() {
 
 function onSwitchTestMode() {
 	if (!blocked) {
-		if (document.getElementById('onoffswitchTestMode').checked)
+		if (switchTestMode.checked)
 			sendSerialCommand("TestMode On");
 		else
 			sendSerialCommand("TestMode Off");
 	}		
 	
 	else {
-		document.getElementById('onoffswitchTestMode').checked = !document.getElementById('onoffswitchTestMode').checked;
+		switchTestMode.checked = !document.getElementById('onoffswitchTestMode').checked;
 	}
 }
 
@@ -87,6 +90,12 @@ function updateCam() {
     xmlHTTP.send();
 }
 
+function getSerialData(command) {
+	var xmlHTTP = new XMLHttpRequest();
+  	xmlHTTP.open("GET","php/readSerial.php?cmd=" + command.replace(/ /g, '+'), false);
+	xmlHTTP.send();
+	return xmlHTTP.responseText;
+}
 
 function sendSerialCommand(command) {
 	xmlHttp = new XMLHttpRequest();
@@ -121,6 +130,15 @@ function changeSpeeds(d, s, td, ts) {
 	speed = s;
 	turnDist = td;
 	turnSpeed = ts;
+}
+
+function refreshBatteryStatus() {
+	
+	
+	
+	if (switchTestMode.checked) {
+		// Turn on TestMode again
+	}
 }
 
 /* ClickTouchHandlers Controls */
