@@ -144,7 +144,7 @@ function refreshBatteryStatus() {
 			percentValue = lines[i].split(",")[1];	
 	}
 	
-	document.getElementById("batteryPercentage").innerHtml = percentValue;
+	document.getElementById("batteryPercentage").innerHTML = percentValue;
 	
 	if (switchTestMode.checked) {
 		sendSerialCommand("TestMode On");
