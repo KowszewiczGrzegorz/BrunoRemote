@@ -140,8 +140,6 @@ function refreshBatteryStatus() {
 		if (lines[i].indexOf("FuelPercent") > - 1) 
 			percentValue = lines[i].split(",")[1];	
 	}
-	console.log(raw);
-	console.log(percentValue);
 	document.getElementById("batteryPercentage").innerHTML = "" + percentValue;
 	
 	if (document.getElementById('onoffswitchTestMode').checked) {
