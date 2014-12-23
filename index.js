@@ -137,9 +137,12 @@ function refreshBatteryStatus() {
 	var lines = raw.split("\n");
 	var percentValue = "-1";
 	
-	for(var i = 0; i < lines.length; i++) 
-		if (lines[i].indexOf("FuelPercent") > - 1) 
-			percentValue = lines[i].split(",")[1];
+	for(var i = 0; i < lines.length; i++) {
+		if (lines[i].indexOf("FuelPercent") > - 1) {
+			console.log(lines[i]);
+			percentValue = lines[i].split(",")[1];			
+		}
+	}
 	
 	alert(percentValue);	
 	
