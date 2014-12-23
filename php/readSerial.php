@@ -3,7 +3,7 @@
 	ini_set('display_errors', '1');
 	
 	system('echo "' . $_GET["cmd"] .'\n"> /dev/ttyACM0');
-	usleep(1000000);
-	$received = system('cat /dev/ttyACM0 & usleep 1000000 ; kill $!');	
+	sleep(1000000);
+	$received = system('cat /dev/ttyACM0 & sleep 1 ; kill $!');	
 	echo "Received: " . $received;
 ?>
