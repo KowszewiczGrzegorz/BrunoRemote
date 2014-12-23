@@ -15,18 +15,19 @@ html {
 }
 
 #camPanel {
-	height: 33%;
+	height: 50%;
 	width: 100%;
 	text-align: center;
 }
 
 #settingsPanel{
-	height: 33%;
+	height: 20%;
 	width: 100%;
+	margin-left: 3px;
 }
 
 #controlsPanel {
-	height: 33%;
+	height: 30%;
 	width: 100%;
 }
 
