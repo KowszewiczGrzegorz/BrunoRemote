@@ -135,18 +135,14 @@ function changeSpeeds(d, s, td, ts) {
 function refreshBatteryStatus() {	
 	var raw = getSerialData("GetCharger");	
 	var lines = raw.split("\n");
+	var percentValue = "-1";
 	
-	for(var i = 0; i < lines.length; i++) {
-		if (lines[i].indexOf("FuelPercent") > - 1) {
-			alert("Found in line: " + i);
-		}
-		
-		else {
-			console.log("No!");
-		}
-	}
+	for(var i = 0; i < lines.length; i++) 
+		if (lines[i].indexOf("FuelPercent") > - 1) 
+			percentValue = lines[i].split(",")[1];
 	
-		
+	alert(percentValue);	
+	
 	if (switchTestMode.checked) {
 		// Turn on TestMode again
 	}
