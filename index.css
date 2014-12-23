@@ -34,6 +34,15 @@ html {
 #camPic {	
 	width: auto;
 	height: 100%;
+} 
+
+#batteryPanel
+{	
+	height: 100%;
+	width: 100%;	
+	color: white;
+	font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+	font-size: large;
 }
 
 /* Controlpanels */

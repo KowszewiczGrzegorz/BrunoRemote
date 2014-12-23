@@ -133,6 +133,8 @@ function changeSpeeds(d, s, td, ts) {
 }
 
 function refreshBatteryStatus() {	
+	sendSerialCommand("TestMode Off");
+	
 	var raw = getSerialData("GetCharger");	
 	var lines = raw.split("\n");
 	var percentValue = "-1";
@@ -142,10 +144,10 @@ function refreshBatteryStatus() {
 			percentValue = lines[i].split(",")[1];	
 	}
 	
-	alert(percentValue);	
+	document.getElementById("batteryPercentage").innerHtml = percentValue;
 	
 	if (switchTestMode.checked) {
-		// Turn on TestMode again
+		sendSerialCommand("TestMode On");
 	}
 }
 

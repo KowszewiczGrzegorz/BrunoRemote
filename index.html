@@ -22,7 +22,7 @@
 				<div style="height: 4%; width: 100%;"></div>
 				<div id="wrapperSpeed">
 					<div class="onoffswitch">
-					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoffswitchFastSlow" onchange="onSwitchFastSlow()" checked="checked">
+					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoffswitchFastSlow" onchange="onSwitchFastSlow()" checked="checked" />
 					    <label class="onoffswitch-label" for="onoffswitchFastSlow">
 					        <span class="onoffswitch-inner">
 					            <span class="onoffswitch-active"><span class="onoffswitch-switch">Fast</span></span>
@@ -43,7 +43,18 @@
 					</div>	
 				</div>	
 			</div>	
-			<div style="height: 100%; width: 70%; float: left;"></div>
+			<div style="height: 100%; width:20%; float:left;">
+				<div id="batteryPanel">	
+					<div style="height:2%; width: 100%;"></div>				
+					<div style="height: 48%; width:100%;">
+						<span>Battery: </span><br><span id="batteryPercentage">-1</span><span>%</span>
+					</div>
+					<div style="height:48%; width: 100%">
+						<img src="pics/refresh.png" alt="refresh" style="height: 100%;"/>
+					</div>				
+				</div>
+			</div>
+			<div style="height: 100%; width: 50%; float: left;"></div>
 		</div>
 		<div id="controlsPanel">
 			<div id="turnLeftPanel" class="controlButtonsH">
