@@ -22,7 +22,7 @@ var turnSpeed = turnSpeedFast;
 function onBodyLoad() {
 	updateCam();
 	registerTouchEvents();
-	console.log(getSerialData(command));
+	console.log(getSerialData("GetCharger"));
 }
 
 function registerTouchEvents() {
