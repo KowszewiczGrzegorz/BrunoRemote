@@ -1,18 +1,8 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-include "PhpSerial.php";
+	error_reporting(E_ALL);
+	ini_set('display_errors', '1');
 
-$serial = new phpSerial;
-$serial->deviceSet("/dev/ttyACM0");
-$serial->confBaudRate(115200);
-$serial->confParity("none");
-$serial->confCharacterLength(8);
-$serial->confStopBits(1);
-$serial->deviceOpen();
-$serial->sendMessage($_GET["cmd"]);
-
-echo $serial->readPort();
-
-$serial->deviceClose();
+	$received = system('cat /dev/ttyACM0 && (sleep 3 ; kill -TERM $!; sleep 1; kill -9 $!');
+	system('echo "' . $_GET["cmd"] .'\n"> /dev/ttyACM0');
+	echo $received;
 ?>
