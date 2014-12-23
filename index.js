@@ -23,28 +23,37 @@ function onBodyLoad() {
 }
 
 function registerTouchEvents() {
-	document.getElementById("turnLeftPanel").addEventListener("touchstart", clickTouchTurnLeftPanel, false);
-	document.getElementById("turnLeftPanel").addEventListener("touchend", clickTouchTurnLeftPanel, false);
-	document.getElementById("turnLeftPanel").addEventListener("mousedown", clickTouchTurnLeftPanel, false);
-	document.getElementById("turnLeftPanel").addEventListener("mouseup", clickTouchTurnLeftPanel, false);
-	document.getElementById("turnLeftPanel").addEventListener("dragstart", clickTouchTurnLeftPanel, false);	
-
-	document.getElementById("turnRightPanel").addEventListener("touchstart", clickTouchTurnRightPanel, false);
-	document.getElementById("turnRightPanel").addEventListener("touchend", clickTouchTurnRightPanel, false);
-	document.getElementById("turnRightPanel").addEventListener("mousedown", clickTouchTurnRightPanel, false);
-	document.getElementById("turnRightPanel").addEventListener("mouseup", clickTouchTurnRightPanel, false);
-	document.getElementById("turnRightPanel").addEventListener("dragstart", clickTouchTurnRightPanel, false);
-
-	document.getElementById("moveForwardPanel").addEventListener("touchstart", clickTouchMoveForwardPanel, false);
-	document.getElementById("moveForwardPanel").addEventListener("touchend", clickTouchMoveForwardPanel, false);
-	document.getElementById("moveForwardPanel").addEventListener("mousedown", clickTouchMoveForwardPanel, false);
-	document.getElementById("moveForwardPanel").addEventListener("mouseup", clickTouchMoveForwardPanel, false);
-	document.getElementById("moveForwardPanel").addEventListener("dragstart", clickTouchMoveForwardPanel, false);
-
-	document.getElementById("moveBackwardPanel").addEventListener("touchstart", clickTouchMoveBackwardPanel, false);
-	document.getElementById("moveBackwardPanel").addEventListener("touchend", clickTouchMoveBackwardPanel, false);
-	document.getElementById("moveBackwardPanel").addEventListener("mousedown", clickTouchMoveBackwardPanel, false);
-	document.getElementById("moveBackwardPanel").addEventListener("mouseup", clickTouchMoveBackwardPanel, false);
+	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		document.getElementById("turnLeftPanel").addEventListener("touchstart", clickTouchTurnLeftPanel, false);
+		document.getElementById("turnLeftPanel").addEventListener("touchend", clickTouchTurnLeftPanel, false);
+		
+		document.getElementById("turnRightPanel").addEventListener("touchstart", clickTouchTurnRightPanel, false);
+		document.getElementById("turnRightPanel").addEventListener("touchend", clickTouchTurnRightPanel, false);
+		
+		document.getElementById("moveForwardPanel").addEventListener("touchstart", clickTouchMoveForwardPanel, false);
+		document.getElementById("moveForwardPanel").addEventListener("touchend", clickTouchMoveForwardPanel, false);
+		
+		document.getElementById("moveBackwardPanel").addEventListener("touchstart", clickTouchMoveBackwardPanel, false);
+		document.getElementById("moveBackwardPanel").addEventListener("touchend", clickTouchMoveBackwardPanel, false);
+	}
+	
+	else {
+		document.getElementById("turnLeftPanel").addEventListener("mousedown", clickTouchTurnLeftPanel, false);
+		document.getElementById("turnLeftPanel").addEventListener("mouseup", clickTouchTurnLeftPanel, false);
+		
+		document.getElementById("turnRightPanel").addEventListener("mousedown", clickTouchTurnRightPanel, false);
+		document.getElementById("turnRightPanel").addEventListener("mouseup", clickTouchTurnRightPanel, false);
+		
+		document.getElementById("moveForwardPanel").addEventListener("mousedown", clickTouchMoveForwardPanel, false);
+		document.getElementById("moveForwardPanel").addEventListener("mouseup", clickTouchMoveForwardPanel, false);
+		
+		document.getElementById("moveBackwardPanel").addEventListener("mousedown", clickTouchMoveBackwardPanel, false);
+		document.getElementById("moveBackwardPanel").addEventListener("mouseup", clickTouchMoveBackwardPanel, false);
+	}
+	
+	document.getElementById("turnLeftPanel").addEventListener("dragstart", clickTouchTurnLeftPanel, false);		
+	document.getElementById("turnRightPanel").addEventListener("dragstart", clickTouchTurnRightPanel, false);	
+	document.getElementById("moveForwardPanel").addEventListener("dragstart", clickTouchMoveForwardPanel, false);	
 	document.getElementById("moveBackwardPanel").addEventListener("dragstart", clickTouchMoveBackwardPanel, false);
 }
 
