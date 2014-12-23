@@ -22,7 +22,7 @@ var turnSpeed = turnSpeedFast;
 function onBodyLoad() {
 	updateCam();
 	registerTouchEvents();
-	alert(getSerialData("GetCharger"));
+	refreshBatteryStatus();
 }
 
 function registerTouchEvents() {
@@ -132,10 +132,21 @@ function changeSpeeds(d, s, td, ts) {
 	turnSpeed = ts;
 }
 
-function refreshBatteryStatus() {
+function refreshBatteryStatus() {	
+	var raw = getSerialData("GetCharger");	
+	var lines = raw.split("\n");
 	
+	for(var i = 0; i < lines.length; i++) {
+		if (lines[i].indexOf("FuelPercent") > - 1) {
+			alert("Found in line: " + i);
+		}
+		
+		else {
+			console.log("No!");
+		}
+	}
 	
-	
+		
 	if (switchTestMode.checked) {
 		// Turn on TestMode again
 	}
