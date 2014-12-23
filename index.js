@@ -2,8 +2,6 @@
 var moving = false;
 var movingCommand = "";
 
-var switchTestMode = document.getElementById('onoffswitchTestMode');
-
 var distFast = 100
 var speedFast = 190;
 var turnDistFast = 30;
@@ -59,14 +57,14 @@ function onSwitchFastSlow() {
 
 function onSwitchTestMode() {
 	if (!blocked) {
-		if (switchTestMode.checked)
+		if (document.getElementById('onoffswitchTestMode').checked)
 			sendSerialCommand("TestMode On");
 		else
 			sendSerialCommand("TestMode Off");
 	}		
 	
 	else {
-		switchTestMode.checked = !document.getElementById('onoffswitchTestMode').checked;
+		document.getElementById('onoffswitchTestMode').checked = !document.getElementById('onoffswitchTestMode').checked;
 	}
 }
 
@@ -145,7 +143,7 @@ function refreshBatteryStatus() {
 	
 	document.getElementById("batteryPercentage").innerHTML = "" + percentValue;
 	
-	if (switchTestMode.checked) {
+	if (document.getElementById('onoffswitchTestMode').checked) {
 		sendSerialCommand("TestMode On");
 	}
 }
