@@ -58,7 +58,7 @@ function registerTouchEvents() {
 }
 
 function onSwitchFastSlow() {
-	if (document.getElementById('myonoffswitch').checked)
+	if (document.getElementById('onoffswitchFastSlow').checked)
 		changeSpeeds(distFast, speedFast, turnDistFast, turnSpeedFast);
 	else
 		changeSpeeds(distSlow, speedSlow, turnDistSlow, turnSpeedSlow);
