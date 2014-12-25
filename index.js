@@ -145,12 +145,18 @@ function refreshBatteryStatus() {
 		var raw = getSerialData("GetCharger");	
 		var lines = raw.split("\n");
 		var percentValue = "-1";
+		var charging = false;
 		
 		for(var i = 0; i < lines.length; i++) {
 			if (lines[i].indexOf("FuelPercent") > - 1) 
 				percentValue = lines[i].split(",")[1];	
+			else if (lines[i].indexOf("ChargingEnabled") > - 1 && lines[i].split(",")[1].indexOf("1") > -1) {
+				charging = true;			
+			}	
 		}
+		
 		document.getElementById("batteryPercentage").innerHTML = "" + percentValue;
+		document.getElementById("batteryPercentage").style.color = charging ? "green" : "red";		
 		
 		if (document.getElementById('onoffswitchTestMode').checked) {
 			sendSerialCommand("TestMode On");
